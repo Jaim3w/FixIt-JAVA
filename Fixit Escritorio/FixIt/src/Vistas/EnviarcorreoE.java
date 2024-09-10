@@ -34,10 +34,13 @@ public class EnviarcorreoE extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonA1 = new Vistas.elemetos.ButtonA();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnenviar = new javax.swing.JButton();
         txtCorreo = new javax.swing.JTextField();
+
+        buttonA1.setText("buttonA1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,6 +112,7 @@ public class EnviarcorreoE extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnenviar;
+    private Vistas.elemetos.ButtonA buttonA1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txtCorreo;
