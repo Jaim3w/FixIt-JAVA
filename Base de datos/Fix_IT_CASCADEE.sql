@@ -1235,3 +1235,22 @@ WHERE
     Rol.Nombre = 'Administrador';
 
 
+
+
+SELECT 
+    c.Placa_carro, 
+    c.Color, 
+    c.Ano, 
+    c.ImagenCarro, 
+    c.FechaRegistro, 
+    c.Descripcion,
+    m.Nombre AS NombreModelo,
+    cl.Nombre AS NombreCliente
+FROM 
+    Carro c
+INNER JOIN 
+    Modelo m ON c.UUID_modelo = m.UUID_modelo
+INNER JOIN 
+    Cliente cl ON c.Dui_cliente = cl.Dui_cliente;
+    
+select Dui_cliente, Nombre  from Cliente;
