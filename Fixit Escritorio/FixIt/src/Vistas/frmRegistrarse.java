@@ -80,6 +80,11 @@ public class frmRegistrarse extends javax.swing.JFrame {
         jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 270, 30));
 
         cbComobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbComobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbComoboxActionPerformed(evt);
+            }
+        });
         jPanel1.add(cbComobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 260, 30));
 
         btnAgregarUser.setText("Registrarme");
@@ -112,6 +117,10 @@ public class frmRegistrarse extends javax.swing.JFrame {
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
+
+    private void cbComoboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbComoboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbComoboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,7 +160,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarUser;
     public javax.swing.JComboBox<String> cbComobox;
-    private javax.swing.JLabel imgdecoracion;
+    public javax.swing.JLabel imgdecoracion;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

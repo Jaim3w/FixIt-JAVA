@@ -110,9 +110,6 @@ public class mdlCarros {
             }
 
             tabla.setModel(modelo);
-            //tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            //tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            //tabla.getColumnModel().getColumn(0).setWidth(0);
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo de buscar " + e);
         }
