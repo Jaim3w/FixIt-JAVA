@@ -96,7 +96,6 @@ public class mdlCarros {
     }
 }
 
-    
     public void Buscar(JTable tabla, JTextField miTextField) {
         Connection conexion = Conexion.getConexion();
 
@@ -136,6 +135,56 @@ public class mdlCarros {
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo de buscar " + e);
         }
+    }
+    
+    public void Actualizar(JTable tabla) {
+        Connection conexion = Conexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            String Placas = tabla.getValueAt(filaSeleccionada, 0).toString();
+            try {
+                String sql = "update Carro set Color = ?, Ano = ?, FechaRegistro = ?, Descripcion = ?, NombreModelo = ?, NombreCliente = ?  where Placa_carro = ?";
+                PreparedStatement updateCarro = conexion.prepareStatement(sql);
+
+               updateCarro.setString(1, getCliente());
+               updateCarro.setString(2, getModelo());
+               updateCarro.setString(3, getColor());
+               updateCarro.setString(4, getAnoCarro());
+               updateCarro.setString(5, getRegistroFecha());
+               updateCarro.setString(6, getDescripcion());
+               updateCarro.setString(7, Placas);
+               updateCarro.executeUpdate();
+            } catch (Exception e) {
+                System.out.println("este es el error en el metodo de actualizar" + e);
+            }
+        } 
+    }
+    
+    public void Eliminar(JTable tabla) {
+        Connection conexion = Conexion.getConexion();
+
+        int filaSeleccionada = tabla.getSelectedRow();
+
+        String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+        try {
+            String sql = "delete from Carro where Placa_carro = ?";
+            PreparedStatement deleteCarro = conexion.prepareStatement(sql);
+            deleteCarro.setString(1, miId);
+            deleteCarro.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("este es el error metodo de eliminar" + e);
+        }
+    }
+    
+    public void limpiar(frmCarros vista) {
+        vista.txtPlacaCarro.setText("");
+        vista.cmbClienteCarro.setSelectedItem("");
+        vista.cmbModeloCarro.setSelectedItem("");
+        vista.txtColorCarro.setText("");
+        vista.txtAnoCarro.setText("");
+        vista.txtIngresoCarro.setText("");
+        vista.txtDescripcionCarro.setText("");
+        
     }
    
     public void Mostrar(JTable tabla) {

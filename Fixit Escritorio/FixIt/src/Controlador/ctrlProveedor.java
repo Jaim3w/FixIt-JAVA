@@ -21,13 +21,7 @@ public class ctrlProveedor implements MouseListener, KeyListener{
         
         this.Vista.btnGuardarProveedor.addActionListener(e -> guardarProveedor());
 
-        
         System.out.println("Controlador creado");
-        
-        
-
-     
-
         
         Vista.btnGuardarProveedor.addMouseListener(this);
         Vista.btnEliminarProveedor.addMouseListener(this);
@@ -37,7 +31,6 @@ public class ctrlProveedor implements MouseListener, KeyListener{
         Vista.tbProveedores.addMouseListener(this);
         
         Modelo.Mostrar(Vista.tbProveedores);
-        
     }
     
     private void guardarProveedor() {
@@ -48,8 +41,6 @@ public class ctrlProveedor implements MouseListener, KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
-        
         if (e.getSource() == Vista.btnGuardarProveedor) {
             if (Vista.txtDui.getText().isEmpty() || Vista.txtNombre.getText().isEmpty() || Vista.txtApellido.getText().isEmpty()
                      || Vista.txtTelefono.getText().isEmpty() || Vista.txtCorreo.getText().isEmpty() 

@@ -22,8 +22,13 @@ public class ctrlCarros implements MouseListener, KeyListener {
         this.mClientes = mClientes;
         this.mModelo = mModelo;
         
+        Vista.BtnLimpiarcamposCarro.addMouseListener(this);
+        Vista.btnActualizarCarro.addMouseListener(this);
+        Vista.btnEliminarCarro.addMouseListener(this);
         Vista.btnGuardarCarro.addMouseListener(this);
         Vista.txtBuscarCarro.addKeyListener(this);
+        Vista.tbListaCarros.addMouseListener(this);
+        
         this.mClientes.CargarComboClientes(Vista.cmbClienteCarro);
         this.mModelo.CargarComboModelos(Vista.cmbModeloCarro);
         
@@ -57,6 +62,10 @@ public class ctrlCarros implements MouseListener, KeyListener {
         
         Modelo.Mostrar(Vista.tbListaCarros);
     }
+    
+    private void guardarCarro() {
+        System.out.println("Guardar carro");
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -81,7 +90,6 @@ public class ctrlCarros implements MouseListener, KeyListener {
                     Modelo.setRegistroFecha(Vista.txtIngresoCarro.getText());
                     Modelo.setDescripcion(Vista.txtDescripcionCarro.getText());
 
-                    //Ejecutar el metodo 
                     Modelo.Guardar();
                     Modelo.Mostrar(Vista.tbListaCarros);
                     
@@ -90,14 +98,61 @@ public class ctrlCarros implements MouseListener, KeyListener {
 
                     
                     
-                    //Modelo.limpiar(Vista);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(Vista, "La edad debe ser un número", "Error", JOptionPane.WARNING_MESSAGE);
-                    System.out.println("Error al guardar el proveedor: " + ex.getMessage());
+                    System.out.println("Error al guardar el vehiculo: " + ex.getMessage());
 
                 }
                 
             }
+        }
+        
+        if (e.getSource() == Vista.btnActualizarCarro) {
+            if (Vista.txtPlacaCarro.getText().isEmpty() || Vista.cmbClienteCarro.getSelectedItem() == null || Vista.cmbModeloCarro.getSelectedItem() == null
+                     || Vista.txtColorCarro.getText().isEmpty() || Vista.txtAnoCarro.getText().isEmpty() 
+                    || Vista.txtIngresoCarro.getText().isEmpty() || Vista.txtDescripcionCarro.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(Vista, "Debes seleccionar un registro para actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    Modelo.setPlaca(Vista.txtPlacaCarro.getText());
+                    
+                    Clientes clienteSeleccionado = (Clientes) Vista.cmbClienteCarro.getSelectedItem();
+                    ModeloCarro modeloSeleccionado = (ModeloCarro) Vista.cmbModeloCarro.getSelectedItem();
+
+                    Modelo.setCliente(clienteSeleccionado.getDui_cliente());
+                    Modelo.setModelo(modeloSeleccionado.getUUID_modelo());
+                    Modelo.setColor(Vista.txtColorCarro.getText());
+                    Modelo.setAnoCarro(Vista.txtAnoCarro.getText());
+                    Modelo.setRegistroFecha(Vista.txtIngresoCarro.getText());
+                    Modelo.setDescripcion(Vista.txtDescripcionCarro.getText());
+                    
+                    Modelo.Actualizar(Vista.tbListaCarros);
+                    Modelo.Mostrar(Vista.tbListaCarros);
+                    Modelo.limpiar(Vista);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(Vista, "La edad debe ser un número", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+        
+        if (e.getSource() == Vista.btnEliminarCarro) {
+            if (Vista.txtPlacaCarro.getText().isEmpty() || Vista.cmbClienteCarro.getSelectedItem() == null || Vista.cmbModeloCarro.getSelectedItem() == null
+                     || Vista.txtColorCarro.getText().isEmpty() || Vista.txtAnoCarro.getText().isEmpty() 
+                    || Vista.txtIngresoCarro.getText().isEmpty() || Vista.txtDescripcionCarro.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(Vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Modelo.Eliminar(Vista.tbListaCarros);
+                Modelo.Mostrar(Vista.tbListaCarros);
+                Modelo.limpiar(Vista);
+            }
+       }
+        
+        if (e.getSource() == Vista.BtnLimpiarcamposCarro) {
+            Modelo.limpiar(Vista);
+        }
+
+        if (e.getSource() == Vista.tbListaCarros) {
+            Modelo.cargarDatosTabla(Vista);
         }
     }
 

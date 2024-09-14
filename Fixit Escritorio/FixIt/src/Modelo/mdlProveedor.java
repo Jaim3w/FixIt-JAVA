@@ -195,8 +195,6 @@ public class mdlProveedor {
                 JOptionPane.showMessageDialog(null, "Debe ingresar un correo electrónico válido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
             }
-        
-                //Ejecutamos la Query
                 String sql = "update Proveedor set Nombre= ?, Apellido = ?, Telefono = ?, Correo_Electronico = ?, Direccion = ?  where Dui_Proveedor = ?";
                 PreparedStatement updateProveedor = conexion.prepareStatement(sql);
 

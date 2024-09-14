@@ -21,7 +21,6 @@ public class ModeloCarro {
         this.NombreModelo = NombreModelo;
     }
 
-    // Getters y setters
     public String getUUID_modelo() {
         return UUID_modelo;
     }
@@ -38,13 +37,11 @@ public class ModeloCarro {
         this.NombreModelo = NombreModelo;
     }
     
-    // Sobreescribir toString() para mostrar el nombre del modelo en el JComboBox
     @Override
     public String toString() {
-        return NombreModelo;  // Esto permite que el JComboBox muestre el nombre del modelo
+        return NombreModelo;
     }
 
-    // Método para cargar los modelos en el JComboBox
     public void CargarComboModelos(JComboBox comboBox){
         Connection conexion = Conexion.getConexion();
         comboBox.removeAllItems();
@@ -54,7 +51,7 @@ public class ModeloCarro {
             while(rs.next()){
                 String uuid = rs.getString("UUID_modelo");
                 String nombre = rs.getString("Nombre");
-                comboBox.addItem(new ModeloCarro(uuid, nombre));  // Se añade el objeto al combo
+                comboBox.addItem(new ModeloCarro(uuid, nombre));
             }
         } catch(SQLException e) {
             e.printStackTrace();
