@@ -8,27 +8,9 @@ import java.sql.Statement;
 import javax.swing.JComboBox;
 
 public class Clientes {
-    private String UUID_modelo;
-    private String NombreModelo;
     private String Dui_cliente;
     private String Nombre;
 
-    public String getUUID_modelo() {
-        return UUID_modelo;
-    }
-
-    public void setUUID_modelo(String UUID_modelo) {
-        this.UUID_modelo = UUID_modelo;
-    }
-
-    public String getNombreModelo() {
-        return NombreModelo;
-    }
-
-    public void setNombreModelo(String NombreModelo) {
-        this.NombreModelo = NombreModelo;
-    }
-    
     public String getDui_cliente() {
         return Dui_cliente;
     }
@@ -58,24 +40,6 @@ public class Clientes {
     public String toString()
     {
       return Nombre;
-    }
-    
-    public void CargarComboModelos(JComboBox comboBox){
-        Connection conexion=Conexion.getConexion();
-        comboBox.removeAllItems();
-        try{
-            Statement statement=conexion.createStatement();
-            ResultSet rs=statement.executeQuery("select UUID_modelo, Nombre from Modelo");
-            while(rs.next()){
-                String uuid=rs.getString("UUID_modelo");
-                String nombre=rs.getString("Nombre");
-                comboBox.addItem(new Clientes(uuid, nombre));
-          }
-      
-      }catch(SQLException e){
-        e.printStackTrace();
-      
-      }
     }
     
     public void CargarComboClientes(JComboBox comboBox){

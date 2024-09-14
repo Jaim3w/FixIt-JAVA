@@ -1,33 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vistas;
 
 import Controlador.ctrlCarros;
 import Modelo.Clientes;
+import Modelo.ModeloCarro;
 import Modelo.mdlCarros;
 import Vistas.elemetos.RoundedWhitePanel;
 
 public class frmCarros extends RoundedWhitePanel {
 
-    /**
-     * Creates new form frmCarros
-     */
     public frmCarros() {
         super(20, 20);
         initComponents();
         
         frmCarros vista = this;
         mdlCarros modelo = new mdlCarros();
-        Clientes mClientes = new Clientes(); 
-        ctrlCarros controlador = new ctrlCarros(modelo, vista, mClientes);
+        Clientes mClientes = new Clientes();
+        ModeloCarro mModelo = new ModeloCarro();
+        ctrlCarros controlador = new ctrlCarros(modelo, vista, mClientes, mModelo);
 
         vista.setVisible(true);
     }
-    
-
-    
     //@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

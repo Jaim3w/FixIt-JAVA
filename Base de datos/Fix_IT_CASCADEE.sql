@@ -103,6 +103,9 @@ Create table Carro(
     CONSTRAINT fk_modelo FOREIGN KEY (UUID_modelo) REFERENCES Modelo(UUID_modelo) ON DELETE CASCADE
 );
 
+insert into Carro (Placa_carro, Dui_cliente, UUID_modelo, Color, Ano, ImagenCarro, FechaRegistro, Descripcion)
+VALUES ('ABX1214', '345723699', (SELECT UUID_modelo FROM Modelo WHERE Nombre = 'Sedan'), 'Gris claro', '2020', 'imgPrueba', '01/01/2024', 'Carro jodido');
+
 Create table HistorialCarro(
     UUID_historialCarro Varchar2(50) PRIMARY KEY,
     Placa_carro VARCHAR2(8) NOT NULL,

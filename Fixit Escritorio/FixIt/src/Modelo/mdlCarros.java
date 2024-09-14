@@ -4,7 +4,9 @@ import Vistas.frmCarros;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -73,6 +75,27 @@ public class mdlCarros {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    public void Guardar() {
+    Connection conexion = Conexion.getConexion();
+
+    try {
+        String sql = "insert into Carro (Placa_carro, Dui_cliente, UUID_modelo, Color, Ano, ImagenCarro, FechaRegistro, Descripcion) VALUES (?, ?, ?, ?, ?, 'imagenPrueba', ?, ?)";
+        PreparedStatement pstmt = conexion.prepareStatement(sql);
+        pstmt.setString(1, getPlaca());
+        pstmt.setString(2, getCliente());
+        pstmt.setString(3, getModelo());
+        pstmt.setString(4, getColor());
+        pstmt.setString(5, getAnoCarro());
+        pstmt.setString(6, getRegistroFecha());
+        pstmt.setString(7, getDescripcion());
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error al guardar el carro: " + e.getMessage());
+    }
+}
+
     
     public void Buscar(JTable tabla, JTextField miTextField) {
         Connection conexion = Conexion.getConexion();
