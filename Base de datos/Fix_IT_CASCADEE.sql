@@ -1254,3 +1254,5 @@ INNER JOIN
     Cliente cl ON c.Dui_cliente = cl.Dui_cliente;
     
 select Dui_cliente, Nombre  from Cliente;
+
+select UUID_modelo, Nombre from Modelo;
