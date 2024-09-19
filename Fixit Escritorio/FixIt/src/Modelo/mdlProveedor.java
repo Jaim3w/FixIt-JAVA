@@ -191,7 +191,6 @@ public class mdlProveedor {
 
         if (!isValidEmail(correo)) {
             
-                // mensaje de error
                 JOptionPane.showMessageDialog(null, "Debe ingresar un correo electrónico válido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
             }
