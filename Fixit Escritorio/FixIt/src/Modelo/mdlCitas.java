@@ -83,5 +83,28 @@ public class mdlCitas {
     }
     
     //funcion para eliminar citas
+    public void Eliminarcita(){
+    Connection conexion=Conexion.getConexion();
+        try {
+            PreparedStatement eliminarCita=conexion.prepareStatement("Delete  from Cita whwere UUID_cita = ?");
+            eliminarCita.setString(1,getUUID_cita() );
+            eliminarCita.executeUpdate();
+        } catch (SQLException e) {
+                e.printStackTrace();
+        }
+    }
     
+    //funcion actualizar
+    public void ActualizarCitas(){
+    Connection conexion=Conexion.getConexion();
+        try {
+            PreparedStatement actualizarCita=conexion.prepareStatement("update Cita set Fecha_cita =?,Horra_cita = ?, Descripcion = ?");
+            actualizarCita.setString(1, getFecha_cita());
+            actualizarCita.setString(2,getHora_cita());
+            actualizarCita.setString(3, getDescripcion());
+            actualizarCita.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
