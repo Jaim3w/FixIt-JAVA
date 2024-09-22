@@ -88,7 +88,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
                 btnAgregarUserActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 102, 40));
+        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 102, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,7 +151,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarUser;
     public javax.swing.JComboBox<String> cbComobox;
-    private javax.swing.JLabel imgdecoracion;
+    public javax.swing.JLabel imgdecoracion;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

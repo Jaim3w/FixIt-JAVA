@@ -57,10 +57,13 @@ public class Usuarios {
     public void setUUID_rol(String UUID_rol) {
         this.UUID_rol = UUID_rol;
     }
-
+    
+    
     //variable global de la contra
+ 
+
     //Aqui se insertan los usuarios la base
-    public void InsertarUser() {
+    public  void InsertarUser() {
 
         Connection conexion = Conexion.getConexion();
         try {
@@ -75,26 +78,6 @@ public class Usuarios {
         } catch (SQLException e) {
             System.out.println("Error en el modelo" + e);
         }
-    }
-
-    public boolean Verificar() {
-
-        boolean usuarios = false;
-
-        Connection con = Conexion.getConexion();
-        try {
-
-            PreparedStatement Verificar = con.prepareStatement("select * from Usuario");
-            ResultSet rs = Verificar.executeQuery();
-
-            usuarios = rs.next();
-            rs.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return usuarios;
     }
 
     //Aqui se hace el loguin del programa

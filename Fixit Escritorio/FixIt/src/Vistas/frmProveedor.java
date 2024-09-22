@@ -8,7 +8,6 @@ import Controlador.ctrlProveedor;
 import Modelo.mdlProveedor;
 import Vistas.elemetos.RoundedWhitePanel;
 import java.text.ParseException;
-import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -24,19 +23,17 @@ public class frmProveedor extends RoundedWhitePanel {
     public frmProveedor() {
          super(20, 20);
         initComponents();
-        
-         frmProveedor vista = this;
+        frmProveedor vista = this;
         mdlProveedor modelo = new mdlProveedor();
         ctrlProveedor controlador = new ctrlProveedor(modelo, vista);
 
         vista.setVisible(true);
-        
         try {
             MaskFormatter mf = new MaskFormatter("####-####");
             mf.setPlaceholderCharacter('_');
             txtTelefono.setFormatterFactory(new DefaultFormatterFactory(mf));
         } catch (ParseException ex) {
-               JOptionPane.showMessageDialog(this, "Error al aplicar formato al teléfono", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.print(ex);
         }
         
         // Mascara para el DUI
@@ -45,14 +42,9 @@ public class frmProveedor extends RoundedWhitePanel {
             mf.setPlaceholderCharacter('_');
             txtDui.setFormatterFactory(new DefaultFormatterFactory(mf));
         } catch (ParseException ex) {
-           JOptionPane.showMessageDialog(this, "Error al aplicar formato al DUI", "Error", JOptionPane.ERROR_MESSAGE);
-
+            System.out.print(ex);
         }
-        
     }
-    
-    
-    
     
     //Warnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

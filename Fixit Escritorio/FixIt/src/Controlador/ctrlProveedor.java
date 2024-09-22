@@ -18,14 +18,6 @@ public class ctrlProveedor implements MouseListener, KeyListener{
         
         this.Modelo = Modelo;
         this.Vista = Vista;
-        
-        this.Vista.btnGuardarProveedor.addActionListener(e -> guardarProveedor());
-
-        
-        System.out.println("Controlador creado");
-        
-        
-
      
 
         
@@ -35,20 +27,13 @@ public class ctrlProveedor implements MouseListener, KeyListener{
         Vista.btnLimpiarCamposProveedor.addMouseListener(this);
         Vista.txtBuscarProveedor.addKeyListener(this);
         Vista.tbProveedores.addMouseListener(this);
-        
         Modelo.Mostrar(Vista.tbProveedores);
-        
-    }
-    
-    private void guardarProveedor() {
-        // Lógica para guardar el proveedor
-        System.out.println("Guardar proveedor");
+          
     }
         
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
         
         if (e.getSource() == Vista.btnGuardarProveedor) {
             if (Vista.txtDui.getText().isEmpty() || Vista.txtNombre.getText().isEmpty() || Vista.txtApellido.getText().isEmpty()
@@ -57,8 +42,6 @@ public class ctrlProveedor implements MouseListener, KeyListener{
                 JOptionPane.showMessageDialog(Vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 try {
-                System.out.println("Guardando proveedor...");
-
                     //Asignar lo de la vista al modelo
                     Modelo.setDui(Vista.txtDui.getText());
                     Modelo.setNombre(Vista.txtNombre.getText());
@@ -70,19 +53,10 @@ public class ctrlProveedor implements MouseListener, KeyListener{
                     //Ejecutar el metodo 
                     Modelo.Guardar();
                     Modelo.Mostrar(Vista.tbProveedores);
-                    
-                    
-                System.out.println("Proveedor guardado correctamente.");
-
-                    
-                    
                     //Modelo.limpiar(Vista);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(Vista, "La edad debe ser un número", "Error", JOptionPane.WARNING_MESSAGE);
-                    System.out.println("Error al guardar el proveedor: " + ex.getMessage());
-
                 }
-                
             }
         }
         
@@ -165,8 +139,6 @@ public class ctrlProveedor implements MouseListener, KeyListener{
             Modelo.Buscar(Vista.tbProveedores, Vista.txtBuscarProveedor);
         }
     }
-    
-    
     
     
 }

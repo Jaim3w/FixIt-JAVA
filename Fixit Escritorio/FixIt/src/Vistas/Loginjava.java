@@ -16,6 +16,8 @@ public class Loginjava extends javax.swing.JFrame {
     public Loginjava() {
         initComponents();
         this.setLocationRelativeTo(this);
+        txtContra.setHint("Contraseña");
+        txtCorreo.setHint("Correo");
 
     }
     
@@ -36,88 +38,58 @@ public class Loginjava extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        radialGradientPanel1 = new Vistas.elemetos.RadialGradientPanel();
+        btnLogin = new Vistas.elemetos.Button();
+        txtContra = new Vistas.elemetos.CustomTextField();
+        txtCorreo = new Vistas.elemetos.CustomTextField();
+        btnOlvidecontra = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        btnOlvidecontra = new javax.swing.JButton();
-        txtCorreo = new javax.swing.JFormattedTextField();
-        txtContra = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        radialGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Correo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        btnLogin.setBackground(new java.awt.Color(255, 204, 0));
+        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogin.setText("Iniciar sesión");
+        btnLogin.setActionCommand("");
+        btnLogin.setFont(new java.awt.Font("Microsoft Tai Le", 0, 14)); // NOI18N
+        radialGradientPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 200, 50));
+        radialGradientPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 350, 40));
+        radialGradientPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 350, 40));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
+        btnOlvidecontra.setFont(new java.awt.Font("Microsoft Tai Le", 0, 12)); // NOI18N
+        btnOlvidecontra.setForeground(new java.awt.Color(255, 255, 255));
+        btnOlvidecontra.setText("¿Olvidaste la contraseña?");
+        radialGradientPanel1.add(btnOlvidecontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/5 3.png"))); // NOI18N
+        radialGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 480));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio de sesion");
+        jLabel1.setText("Inicio de sesión");
         jLabel1.setToolTipText("");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        radialGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
-
-        btnLogin.setText("Iniciar sesion");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 110, 37));
-
-        btnOlvidecontra.setText("Olvide mi contaseña ");
-        jPanel1.add(btnOlvidecontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 450, -1, -1));
-
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 280, 32));
-
-        txtContra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 290, 30));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/logoo-Photoroom 2.png"))); // NOI18N
+        radialGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(radialGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(radialGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraActionPerformed
-
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,13 +127,13 @@ public class Loginjava extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnLogin;
-    public javax.swing.JButton btnOlvidecontra;
+    public Vistas.elemetos.Button btnLogin;
+    public javax.swing.JLabel btnOlvidecontra;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField txtContra;
-    public javax.swing.JFormattedTextField txtCorreo;
+    private javax.swing.JLabel jLabel4;
+    private Vistas.elemetos.RadialGradientPanel radialGradientPanel1;
+    public Vistas.elemetos.CustomTextField txtContra;
+    public Vistas.elemetos.CustomTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }
