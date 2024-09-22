@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-import Vistas.frmRegistrarse;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,10 +57,15 @@ public class Usuarios {
     public void setUUID_rol(String UUID_rol) {
         this.UUID_rol = UUID_rol;
     }
+
     
     
     //variable global de la contra
  
+
+
+
+   
 
     //Aqui se insertan los usuarios la base
     public  void InsertarUser() {

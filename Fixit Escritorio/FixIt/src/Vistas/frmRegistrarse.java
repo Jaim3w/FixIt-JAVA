@@ -46,11 +46,18 @@ public class frmRegistrarse extends javax.swing.JFrame {
         btnAgregarUser = new Vistas.elemetos.Button();
         txtContra = new Vistas.elemetos.CustomTextField();
         cbComobox = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         txtCorreoUser = new Vistas.elemetos.CustomTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+=======
+        btnAgregarUser = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        button1 = new botones.button();
+>>>>>>> fito
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -75,12 +82,23 @@ public class frmRegistrarse extends javax.swing.JFrame {
         cbComobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         radialGradientPanel1.add(cbComobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 350, 30));
 
+<<<<<<< HEAD
         txtCorreoUser.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnAgregarUser.setBackground(new java.awt.Color(77, 119, 236));
+        btnAgregarUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarUser.setText("Registrarme");
+        btnAgregarUser.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> fito
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoUserActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         radialGradientPanel1.add(txtCorreoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 350, 40));
+=======
+        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 102, 40));
+>>>>>>> fito
 
         jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,6 +109,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/5 3.png"))); // NOI18N
         radialGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 480));
 
+<<<<<<< HEAD
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/logoo-Photoroom 2.png"))); // NOI18N
         radialGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
 
@@ -98,6 +117,21 @@ public class frmRegistrarse extends javax.swing.JFrame {
         radialGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 120, -1));
 
         getContentPane().add(radialGradientPanel1, java.awt.BorderLayout.CENTER);
+=======
+        button1.setBackground(new java.awt.Color(240, 202, 78));
+        button1.setText("porque no sale");
+        button1.setToolTipText("");
+        button1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        button1.setShadowColor(new java.awt.Color(240, 202, 78));
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 130, -1));
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+>>>>>>> fito
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,9 +140,15 @@ public class frmRegistrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
 
+
     private void txtCorreoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoUserActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -146,6 +186,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     public Vistas.elemetos.Button btnAgregarUser;
     public javax.swing.JComboBox<String> cbComobox;
     private javax.swing.JLabel jLabel1;
@@ -155,5 +196,18 @@ public class frmRegistrarse extends javax.swing.JFrame {
     private Vistas.elemetos.RadialGradientPanel radialGradientPanel1;
     public Vistas.elemetos.CustomTextField txtContra;
     public Vistas.elemetos.CustomTextField txtCorreoUser;
+=======
+    public javax.swing.JButton btnAgregarUser;
+    private botones.button button1;
+    public javax.swing.JComboBox<String> cbComobox;
+    public javax.swing.JLabel imgdecoracion;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPasswordField txtContra;
+    public javax.swing.JFormattedTextField txtCorreoUser;
+>>>>>>> fito
     // End of variables declaration//GEN-END:variables
 }
