@@ -10,6 +10,8 @@ import java.util.Random;
 
 public class controladorCorreo implements MouseListener {
 
+    static int numeroAle;
+
     private Credenciales modelo;
     private EnviarcorreoE vista;
 

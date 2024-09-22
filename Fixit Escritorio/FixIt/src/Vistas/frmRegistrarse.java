@@ -22,6 +22,8 @@ public class frmRegistrarse extends javax.swing.JFrame {
     public frmRegistrarse() {
         initComponents();
         this.setLocationRelativeTo(null);
+    txtCorreoUser.setHint("correo"); // Establecer el hint al campo de correo
+
     }
 
     public static void initfrmRegistrarse(){
@@ -40,78 +42,73 @@ public class frmRegistrarse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        txtCorreoUser = new javax.swing.JFormattedTextField();
-        jLabel5 = new javax.swing.JLabel();
-        imgdecoracion = new javax.swing.JLabel();
-        txtContra = new javax.swing.JPasswordField();
+        radialGradientPanel1 = new Vistas.elemetos.RadialGradientPanel();
+        btnAgregarUser = new Vistas.elemetos.Button();
+        txtContra = new Vistas.elemetos.CustomTextField();
         cbComobox = new javax.swing.JComboBox<>();
-        btnAgregarUser = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        txtCorreoUser = new Vistas.elemetos.CustomTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(730, 659));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        radialGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("¿Como quiero Registrame?");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 210, -1));
-        jPanel1.add(txtCorreoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 270, 32));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Registrate con FixIT");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-
-        imgdecoracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Diseño sin título (5).png"))); // NOI18N
-        jPanel1.add(imgdecoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, -1));
+        btnAgregarUser.setBackground(new java.awt.Color(255, 204, 0));
+        btnAgregarUser.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarUser.setText("Siguiente");
+        btnAgregarUser.setActionCommand("");
+        btnAgregarUser.setFont(new java.awt.Font("Microsoft Tai Le", 0, 14)); // NOI18N
+        radialGradientPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 200, 50));
 
         txtContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraActionPerformed(evt);
             }
         });
-        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 270, 30));
+        radialGradientPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 350, 40));
 
         cbComobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbComobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 260, 30));
+        radialGradientPanel1.add(cbComobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 350, 30));
 
-        btnAgregarUser.setText("Registrarme");
-        btnAgregarUser.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarUserActionPerformed(evt);
+                txtCorreoUserActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 102, 40));
+        radialGradientPanel1.add(txtCorreoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 350, 40));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Correo Electronico");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 110, -1));
+        jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Registrame ahora");
+        jLabel1.setToolTipText("");
+        radialGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Contraseña");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 110, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/5 3.png"))); // NOI18N
+        radialGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 480));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/logoo-Photoroom 2.png"))); // NOI18N
+        radialGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
+
+        jLabel2.setText("Elige tu rol");
+        radialGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 120, -1));
+
+        getContentPane().add(radialGradientPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarUserActionPerformed
-
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
+
+    private void txtCorreoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,15 +146,14 @@ public class frmRegistrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregarUser;
+    public Vistas.elemetos.Button btnAgregarUser;
     public javax.swing.JComboBox<String> cbComobox;
-    public javax.swing.JLabel imgdecoracion;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField txtContra;
-    public javax.swing.JFormattedTextField txtCorreoUser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private Vistas.elemetos.RadialGradientPanel radialGradientPanel1;
+    public Vistas.elemetos.CustomTextField txtContra;
+    public Vistas.elemetos.CustomTextField txtCorreoUser;
     // End of variables declaration//GEN-END:variables
 }
