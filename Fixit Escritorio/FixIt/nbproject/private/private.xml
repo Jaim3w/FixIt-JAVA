@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Modelo/Encriptqacion.java</file>
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Vistas/NuevaContra.java</file>
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Vistas/elemetos/ButtonA.java</file>
@@ -21,6 +22,11 @@
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Vistas/elemetos/RoundedWhitePanel.java</file>
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Vistas/frmProveedor.java</file>
             <file>file:/C:/Users/Jaimew/Desktop/FixIT/Fixit%20Escritorio/FixIt/src/Vistas/frmCitas.java</file>
+=======
+            <file>file:/C:/Users/rdlfp/OneDrive/Escritorio/FixIt-JAVA/Fixit%20Escritorio/FixIt/src/Controlador/ctrlProveedor.java</file>
+            <file>file:/C:/Users/rdlfp/OneDrive/Escritorio/FixIt-JAVA/Fixit%20Escritorio/FixIt/src/Modelo/mdlProveedor.java</file>
+            <file>file:/C:/Users/rdlfp/OneDrive/Escritorio/FixIt-JAVA/Fixit%20Escritorio/FixIt/src/Controlador/ctrlCitas.java</file>
+>>>>>>> fito
         </group>
     </open-files>
 </project-private>
