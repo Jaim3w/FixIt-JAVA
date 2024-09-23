@@ -4,17 +4,45 @@
  */
 package Vistas;
 
+import Modelo.RestriccionCalendar;
 import Vistas.elemetos.RoundedWhitePanel;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import com.toedter.calendar.JCalendar;
+import javax.swing.*;
+import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 public class frmFacturacion extends RoundedWhitePanel {
 
-    /**
-     * Creates new form frmFacturacion
-     */
+
+    
     public frmFacturacion() {
            super(20, 20);
+           
         initComponents();
+        txtFechaFactura.setEditable(false);
+        txtFechaVencimiento.setEditable(false);
+        
+         for (Component component : CalendarioEmision.getComponents()) {
+        if (component instanceof JButton) {
+            component.setVisible(false);
+        }
     }
+
+    // Repite lo mismo para CalendarioVencimiento
+    for (Component component : CalendarioVencimiento.getComponents()) {
+        if (component instanceof JButton) {
+            component.setVisible(false);
+        }
+    }
+    }
+    
+       
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,13 +56,15 @@ public class frmFacturacion extends RoundedWhitePanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtFechaCita = new javax.swing.JTextField();
-        txtHoraCita = new javax.swing.JTextField();
+        txtFechaFactura = new javax.swing.JTextField();
+        txtFechaVencimiento = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        CalendarioEmision = new com.toedter.calendar.JCalendar();
+        CalendarioVencimiento = new com.toedter.calendar.JCalendar();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -42,10 +72,10 @@ public class frmFacturacion extends RoundedWhitePanel {
         jLabel1.setText("Agregar nueva factura:");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Fecha de la cita:");
+        jLabel2.setText("Fecha de emision:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Hora de la cita:");
+        jLabel3.setText("Fecha de vencimiento:");
 
         btnAgregar.setText("Agregar ");
 
@@ -71,71 +101,212 @@ public class frmFacturacion extends RoundedWhitePanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        CalendarioEmision.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                CalendarioEmisionPropertyChange(evt);
+            }
+        });
+
+        CalendarioVencimiento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                CalendarioVencimientoPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(60, 60, 60)
-                        .addComponent(txtFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHoraCita, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jLabel2)
+                                        .addGap(33, 33, 33))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtFechaFactura, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(txtFechaVencimiento))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CalendarioVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                    .addComponent(CalendarioEmision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(41, 41, 41))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
                                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(49, 49, 49)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(97, 97, 97)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(213, 213, 213)
                         .addComponent(jLabel1)))
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addContainerGap(569, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtHoraCita, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addGap(113, 113, 113)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtFechaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(CalendarioEmision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CalendarioVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(187, 187, 187))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    
+    private void initCalendarios() {
+     Calendar today = Calendar.getInstance();
+    Date currentDate = today.getTime();
+
+    // Establecer la fecha de emisión a hoy
+    CalendarioEmision.setDate(currentDate);
+    CalendarioEmision.setMinSelectableDate(currentDate); // Mínimo hoy
+
+    // Establecer la fecha máxima seleccionable a mañana
+    today.add(Calendar.DAY_OF_YEAR, 1); // Agregar un día
+    Date tomorrowDate = today.getTime();
+    CalendarioEmision.setMaxSelectableDate(tomorrowDate); // Máximo mañana
+
+    // Inicializar el calendario de vencimiento
+    today.add(Calendar.DAY_OF_YEAR, 6); // Ir a 7 días después de hoy
+    Date fechaVencimiento = today.getTime();
+
+    // Establecer el calendario de vencimiento con restricciones
+    CalendarioVencimiento.setMinSelectableDate(fechaVencimiento); // Mínimo 7 días después
+    CalendarioVencimiento.setMaxSelectableDate(fechaVencimiento); // Máximo 7 días después
+    CalendarioVencimiento.setDate(fechaVencimiento); // Establecer fecha de vencimiento inicial
+
+    // Aplicar restricciones
+    restrictCalendar(CalendarioEmision);
+    restrictCalendar(CalendarioVencimiento);
+}
+    
+    private Date fechaSeleccionada = null; // Variable para almacenar la fecha seleccionada
+    
+    private void restrictCalendar(JCalendar calendar) {
+    // Listener para el cambio de fecha
+       disableMonthYearSelectors(calendar);
+
+    // Listener para el cambio de fecha
+    calendar.addPropertyChangeListener("calendar", evt -> {
+        fechaSeleccionada = calendar.getDate(); // Guardar la fecha seleccionada
+        updateTextFields(); // Actualizar los text fields
+
+        if (calendar == CalendarioEmision) {
+            // Restringir el calendario de vencimiento basado en la fecha de emisión
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fechaSeleccionada);
+            cal.add(Calendar.DAY_OF_YEAR, 7);
+            CalendarioVencimiento.setMinSelectableDate(cal.getTime());
+            CalendarioVencimiento.setMaxSelectableDate(cal.getTime());
+        }
+    });
+}
+    
+    
+    private void disableMonthYearSelectors(JCalendar calendar) {
+    if (calendar != null) {
+        // Desactivar el selector de mes
+        calendar.getMonthChooser().setEnabled(false);
+        // Desactivar el selector de año
+        calendar.getYearChooser().setEnabled(false);
+        
+        // Listener para permitir la selección de días
+        calendar.getDayChooser().addPropertyChangeListener("day", evt -> {
+            // Mantener la fecha actual al cambiar el día
+            calendar.setDate(calendar.getDate());
+        });
+    }
+}
+    
+    private void updateTextFields() {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    if (fechaSeleccionada != null) {
+        txtFechaFactura.setText(dateFormat.format(fechaSeleccionada));
+        // Actualizar txtFechaVencimiento si es necesario
+    }
+}
+    
+
+    
+    private void CalendarioEmisionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_CalendarioEmisionPropertyChange
+if ("calendar".equals(evt.getPropertyName())) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        // Actualizar el campo de texto de la fecha de emisión
+        txtFechaFactura.setText(dateFormat.format(CalendarioEmision.getDate()));
+
+        // Calcular la fecha de vencimiento (7 días después)
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(CalendarioEmision.getDate());
+        calendar.add(Calendar.DAY_OF_YEAR, 7);
+        Date fechaVencimiento = calendar.getTime();
+
+        // Establecer la fecha de vencimiento y restringir las fechas
+        CalendarioVencimiento.setMinSelectableDate(fechaVencimiento);
+        CalendarioVencimiento.setMaxSelectableDate(fechaVencimiento);
+        CalendarioVencimiento.setDate(fechaVencimiento); // Seleccionar automáticamente la fecha de vencimiento
+
+        // Actualizar el campo de texto de la fecha de vencimiento
+        txtFechaVencimiento.setText(dateFormat.format(fechaVencimiento));
+    }    }//GEN-LAST:event_CalendarioEmisionPropertyChange
+
+        @Override
+    public void addNotify() {
+        super.addNotify();
+        initCalendarios(); // Llama a initCalendarios para establecer las restricciones
+    }
+    
+    private void CalendarioVencimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_CalendarioVencimientoPropertyChange
+       if ("calendar".equals(evt.getPropertyName())) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            txtFechaVencimiento.setText(dateFormat.format(CalendarioVencimiento.getDate()));
+        }
+    }//GEN-LAST:event_CalendarioVencimientoPropertyChange
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JCalendar CalendarioEmision;
+    public com.toedter.calendar.JCalendar CalendarioVencimiento;
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnEliminar;
@@ -144,7 +315,7 @@ public class frmFacturacion extends RoundedWhitePanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    public javax.swing.JTextField txtFechaCita;
-    public javax.swing.JTextField txtHoraCita;
+    public javax.swing.JTextField txtFechaFactura;
+    public javax.swing.JTextField txtFechaVencimiento;
     // End of variables declaration//GEN-END:variables
 }
