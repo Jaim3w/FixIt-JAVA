@@ -1,6 +1,6 @@
 
 package Modelo;
-import Vistas.frmCitas;
+
 import com.formdev.flatlaf.ui.FlatListCellBorder;
 import java.sql.*;
 import java.util.UUID;
@@ -137,6 +137,7 @@ public class mdlCitas {
             e.printStackTrace();
         }
     }
+    /*
     public void limpiar(frmCitas vista) {
         vista.txtHora.setText("");   
     }
@@ -158,4 +159,5 @@ public class mdlCitas {
       
     }
     }
+*/
 }

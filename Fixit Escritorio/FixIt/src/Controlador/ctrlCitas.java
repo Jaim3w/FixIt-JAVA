@@ -4,7 +4,7 @@ package Controlador;
 import Modelo.Clientes;
 import Modelo.Empleados;
 import Modelo.mdlCitas;
-import Vistas.frmCitas;
+import Vistas.citas;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -17,17 +17,17 @@ import javax.swing.JOptionPane;
  */
 public class ctrlCitas implements MouseListener,KeyListener{
     private mdlCitas modelito;
-    private frmCitas vista;
+    private citas vista;
     private Clientes modeloCliente;
     private Empleados modeloEmpleado;
     
-    public ctrlCitas(mdlCitas modelo,frmCitas vistas,Clientes Modelo,Empleados ModeloEm){
+    public ctrlCitas(mdlCitas modelo,citas vistas,Clientes Modelo,Empleados ModeloEm){
     this.modelito=modelo;
     this.vista=vistas;
     this.modeloCliente=Modelo;
     this.modeloEmpleado=ModeloEm;
     
-    vistas.btnAddCita.addMouseListener(this);
+    vistas.btnAgregar.addMouseListener(this);
     vistas.btnActualizar.addMouseListener(this);
     vistas.btnEliminar.addMouseListener(this);
     Modelo.CargarCombo(vistas.cmbCliente);
@@ -67,13 +67,13 @@ public class ctrlCitas implements MouseListener,KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == vista.btnAddCita) {
+        if (e.getSource() == vista.btnAgregar) {
             try {
                 System.out.println("Cita guardad");
                 modelito.setDui_empleado(modeloEmpleado.getDui_empleado());
                 modelito.setDui_cliente(modeloCliente.getDui_cliente());
                 modelito.setHora_cita(vista.txtHora.getText());
-                modelito.setDescripcion(vista.txtDEsc.getText());
+                modelito.setDescripcion(vista.txtDescrip.getText());
                 modelito.setFecha_cita(vista.txtFecha.getText());
                 
             modelito.InsertarCitas();
@@ -94,7 +94,7 @@ public class ctrlCitas implements MouseListener,KeyListener{
         if (e.getSource() == vista.btnActualizar) {
             try {
                 modelito.setHora_cita(vista.txtHora.getText());
-                modelito.setDescripcion(vista.txtDEsc.getText());
+                modelito.setDescripcion(vista.txtDescrip.getText());
                 modelito.setFecha_cita(vista.txtFecha.getText());
                 
                 modelito.ActualizarCitas(vista.tbCitas);
