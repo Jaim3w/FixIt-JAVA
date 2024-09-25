@@ -275,7 +275,6 @@ public class mdlProveedor {
             vista.txtTelefono.setText(TelefonoDeTB);
             vista.txtCorreo.setText(CorreoDeTB);
             vista.txtDireccion.setText(DireccionDeTB);
-            
         }
     }  
      

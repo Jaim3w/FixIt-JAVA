@@ -58,7 +58,7 @@ public class Usuarios {
         this.UUID_rol = UUID_rol;
     }
 
-    //variable global de la contra
+   
     //Aqui se insertan los usuarios la base
     public void InsertarUser() {
 

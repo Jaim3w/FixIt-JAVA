@@ -50,6 +50,7 @@ public class frmRegistrarse extends javax.swing.JFrame {
         btnAgregarUser = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        button1 = new botones.button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -82,13 +83,15 @@ public class frmRegistrarse extends javax.swing.JFrame {
         cbComobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(cbComobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 260, 30));
 
+        btnAgregarUser.setBackground(new java.awt.Color(77, 119, 236));
+        btnAgregarUser.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarUser.setText("Registrarme");
         btnAgregarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarUserActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 102, 40));
+        jPanel1.add(btnAgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 102, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,6 +102,18 @@ public class frmRegistrarse extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Contraseña");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 110, -1));
+
+        button1.setBackground(new java.awt.Color(240, 202, 78));
+        button1.setText("porque no sale");
+        button1.setToolTipText("");
+        button1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        button1.setShadowColor(new java.awt.Color(240, 202, 78));
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 130, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -112,6 +127,10 @@ public class frmRegistrarse extends javax.swing.JFrame {
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,8 +169,9 @@ public class frmRegistrarse extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarUser;
+    private botones.button button1;
     public javax.swing.JComboBox<String> cbComobox;
-    private javax.swing.JLabel imgdecoracion;
+    public javax.swing.JLabel imgdecoracion;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
