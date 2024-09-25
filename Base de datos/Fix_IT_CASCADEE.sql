@@ -136,9 +136,11 @@ Create table AsignarOrden(
 
 Create table Factura(
     UUID_factura VARCHAR2(50) PRIMARY KEY,
+    FacturaIdentificacion Varchar2(50) NOT NULL,
     FechaEmision VARCHAR2(200) NOT NULL,
     FechaVencimiento VARCHAR2(200) NOT NULL
 );
+
 
 Create table DetalleFactura(
     UUID_DetalleFactura VARCHAR2(50) PRIMARY KEY,
@@ -1160,6 +1162,13 @@ INSERT INTO AsignarOrden (UUID_AsignarOrden, UUID_cita, UUID_servicio, UUID_esta
           (SELECT UUID_servicio FROM Servicio WHERE Nombre = 'Cambio de Bateria'), 
           (SELECT UUID_estado FROM EstadoAsignarOrden WHERE Nombre = 'Terminado'), 
           '25/08/2024', '30/08/2024', 'Cambio de bateria y llantas');
+
+
+insert into factura(UUID_factura,FacturaIdentificacion,FechaEmision,FechaVencimiento)
+values (SYS_GUID(), 'factura de carlos', sysdate, '25/09/2024');
+
+insert into factura(UUID_factura,FacturaIdentificacion,FechaEmision,FechaVencimiento)
+values (SYS_GUID(), 'factura de el bicho', sysdate, '29/09/2024');
 
 
 SELECT  CategoriaItem.Nombre AS "Categoria", ProductoRepuesto.Nombre, 
